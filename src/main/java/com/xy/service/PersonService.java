@@ -15,5 +15,5 @@ import javax.jws.WebService;
 public interface PersonService {
 
     @WebMethod
-    public RespInfo save(@WebParam(name = "PERSON") Person person);
+    public RespInfo save(@WebParam(name = "PERSON", targetNamespace = "http://www.xy.com/webservice/person") Person person);
 }

@@ -19,7 +19,7 @@ public class PersonServiceImpl implements PersonService {
         System.out.println(person);
         RespInfo respInfo = new RespInfo();
         respInfo.setCode(1000);
-        respInfo.setMessage("success");
+        respInfo.setMessage("hello " + person.getName());
         return respInfo;
     }
 }
