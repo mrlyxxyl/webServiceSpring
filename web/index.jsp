@@ -15,5 +15,30 @@
             &lt;NAME&gt;222&lt;/NAME&gt;
         &lt;PERSON&gt;
 </pre>
+
+<hr>
+测试流程：
+    <pre>
+        1、打开cmd，执行wsimport -s E:\web_src\ -p com.client -keep http://192.168.1.124:8001/webServiceSpring/services/PersonService?wsdl
+            说明：
+                E:\web_src\为生成代码路径
+                http://192.168.1.124:8001/webServiceSpring/services/PersonService?wsdl为webservice地址
+        2、新建项目，将代码拷贝进去
+        3、编写测试代码Test.java，内容如下：
+            public class Test {
+                public static void main(String[] args) {
+                    PersonServiceImplService serviceImplService = new PersonServiceImplService();
+                    PersonService personService = serviceImplService.getPort(PersonService.class);
+                    Person person = new Person();
+                    person.setID(1);
+                    person.setNAME("ddd");
+                    RespInfo respInfo = personService.save(person);
+                    System.out.println(respInfo.getCODE());
+                    System.out.println(respInfo.getMESSAGE());
+                }
+            }
+    </pre>
+<hr>
+   <span style="color: red;">注意:服务端代码需要完整拷贝</span>
 </body>
 </html>
